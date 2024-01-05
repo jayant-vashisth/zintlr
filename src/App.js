@@ -1,22 +1,12 @@
-import './App.css';
+import "./App.css";
+import { Consumer } from "./pages/Consumer.pages";
+import { ManageConsumer } from "./pages/ManageConsumer.pages";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App h-screen w-screen">
+      {/* <Consumer /> */}
+      <ManageConsumer />
     </div>
   );
 }
