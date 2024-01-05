@@ -8,6 +8,7 @@ import i from "../../assets/svgs/i.svg";
 import v from "../../assets/svgs/v.svg";
 import totalImg from "../../assets/svgs/total.svg";
 import arrowRight from "../../assets/svgs/arrowRight.svg";
+import { useNavigate } from "react-router-dom";
 
 export const SidebarCard = () => {
   return (
@@ -56,27 +57,55 @@ export const SidebarCard = () => {
   );
 };
 
-export const BannerCard1 = ({ heading, para, bt1, bt2 }) => {
+export const BannerCard1 = ({ heading, para, bt1, bt2, manageConsumers }) => {
+  const navigate = useNavigate();
+
+  const NavigateToManageCon = () => {
+    navigate("/manage-consumer");
+  };
+
+  const NavigateToConsumer = () => {
+    navigate("/");
+  };
+
   return (
     <div
-      className="flex flex-row justify-between pt-4 pl-6 pb-4 rounded-15 bg-lightBlue height-full"
+      className={`flex flex-row justify-between pt-4 pl-6 ${
+        !manageConsumers && `pb-4`
+      } rounded-15 bg-lightBlue height-full`}
       style={{
         boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.05)",
         minHeight: "153px",
       }}
     >
       <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-2 text-left">
-          <span className="font-medium" style={{ fontSize: "25px" }}>
-            {heading}
-          </span>
-          <span
-            className="text-paraColor"
-            style={{ fontSize: "14px", lineHeight: "16px" }}
-          >
-            {para}
-          </span>
-        </div>
+        {manageConsumers ? (
+          <div className="flex flex-col gap-3">
+            <div>
+              <span
+                onClick={() => {
+                  NavigateToConsumer();
+                }}
+                className="custom-heading font-medium text-breadCrumbs cursor-pointer"
+              >
+                Consumer &gt; Manage Consumers
+              </span>
+            </div>
+            <span className="custom-heading18 font-medium">Actions</span>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-2 text-left">
+            <span className="font-medium" style={{ fontSize: "25px" }}>
+              {heading}
+            </span>
+            <span
+              className="text-paraColor"
+              style={{ fontSize: "14px", lineHeight: "16px" }}
+            >
+              {para}
+            </span>
+          </div>
+        )}
         <div className="flex flex-row gap-2">
           <DashboardButton
             filled={true}
@@ -84,12 +113,15 @@ export const BannerCard1 = ({ heading, para, bt1, bt2 }) => {
             icon={personAdd}
             size={"text-base"}
           />
-          <DashboardButton
-            filled={false}
-            text={bt2}
-            icon={personSetting}
-            size={"text-base"}
-          />
+          {!manageConsumers && (
+            <DashboardButton
+              filled={false}
+              text={bt2}
+              icon={personSetting}
+              size={"text-base"}
+              fcn={NavigateToManageCon}
+            />
+          )}
         </div>
       </div>
       <img src={banner1} style={{ zIndex: "10", opacity: "1" }} />
@@ -119,12 +151,14 @@ export const BannerCard2 = ({
         <div className="flex flex-row items-baseline gap-1">
           <div className="flex flex-row items-center gap-1">
             <img src={icon1} />
-            <span
-              className="font-normal text-left"
-              style={{ fontSize: "18px" }}
-            >
-              {text1}
-            </span>
+            {text1 && (
+              <span
+                className="font-normal text-left"
+                style={{ fontSize: "18px" }}
+              >
+                {text1}
+              </span>
+            )}
           </div>
           <span
             className="font-semibold text-left"
@@ -432,7 +466,11 @@ export const DashboardGraphCards = ({ text, btnText, price, bgColor }) => {
       <div className="flex flex-row items-center justify-between">
         <span className="custom-heading18">{text}</span>
         {btnText && (
-          <DashboardButton text={btnText} iconRight={v} size={"text-custom-md"} />
+          <DashboardButton
+            text={btnText}
+            iconRight={v}
+            size={"text-custom-md"}
+          />
         )}
       </div>
       <div className="flex flex-row gap-2 mt-3">

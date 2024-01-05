@@ -14,12 +14,28 @@
   font-weight: 400;
   line-height: normal;
 }
+.custom-heading14Black {
+  color: #000;
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 .custom-heading18 {
   color: var(--Light-Black, #000);
   font-family: Lato;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
+  line-height: normal;
+}
+.custom-heading18LightBlack {
+  color: var(--Light-Black, #313945);
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
   line-height: normal;
 }
 
@@ -48,5 +64,38 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
+  line-height: normal;
+}
+
+/* styling for table */
+
+.smallBlueText {
+  color: var(--dark-blue, #0153c9);
+  font-family: Lato;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+table th {
+  text-align: left;
+  height: 50px;
+  padding-left: 15px;
+}
+
+table td {
+  height: 76px;
+  text-align: left;
+
+  padding-left: 15px;
+}
+
+table th span {
+  color: var(--Black, #000);
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
   line-height: normal;
 }

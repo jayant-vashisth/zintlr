@@ -8,6 +8,7 @@ module.exports = {
         30: "30px",
         15: "15px",
         10: "10px",
+        100: "100px",
       },
       overflow: {
         scrollbarHidden: "scrollbar-hidden",
@@ -42,6 +43,13 @@ module.exports = {
       lightBgColor: "#ECEAFE",
       goldBgColor: "#FFEDB2",
       silverText: "#A7A7A7",
+      tableHeader: "#DDEBFF",
+      bgGold: "#DCC063",
+      silverBg: "#CBCBCB",
+      moneyBg: "#D2EBFA",
+      goldText: "#866D1B",
+      silverText: "#5B5B5B",
+      breadCrumbs: "#1FB9FC",
     },
     fontFamily: {
       customFont: ["inter"],

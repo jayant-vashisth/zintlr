@@ -4,7 +4,9 @@ import banner1 from "../../assets/svgs/banner2.svg";
 import banner2 from "../../assets/svgs/banner3.svg";
 import banner3 from "../../assets/svgs/banner4.svg";
 
-export const Banner = () => {
+export const Banner = ({ ManageConsumers }) => {
+
+
   return (
     <div className="mt-4 flex flex-row gap-2 justify-between">
       <div style={{ width: "45.45%" }}>
@@ -13,6 +15,7 @@ export const Banner = () => {
           para={"You have 134 consumers this week."}
           bt1={"Add Consumers"}
           bt2={"Manage Consumers"}
+          manageConsumers={ManageConsumers}
         />
       </div>
 

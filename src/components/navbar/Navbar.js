@@ -22,7 +22,7 @@ export const Navbar = () => {
         />
         <div
           className="flex absolute bg-white flex-row items-center justify-center rounded-full"
-          style={{ height: "40px", width: "40px", right: "7px", top: "0px" }}
+          style={{ height: "40px", width: "40px", right: "7px", top: "5px" }}
         >
           <img src={search} />
         </div>

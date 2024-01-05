@@ -23,30 +23,47 @@ export const SideBarButton = ({ active, text, asset, setActive }) => {
 
 export const DashboardButton = ({
   filled,
-  onClick,
+  fcn,
   icon,
   text,
   iconRight,
   size,
+  small,
+  bgColor,
+  textColor,
+  bold,
+  borderNo,
 }) => {
   return (
     <button
-      class={`flex flex-row py-2 px-3 ${
-        filled ? `bg-lightBlack` : `bg-white border-lightBlack-400`
+      class={`flex flex-row py-1.5 ${small ? `px-2` : `px-3`} ${
+        bgColor
+          ? `bg-${bgColor}`
+          : filled
+          ? `bg-lightBlack`
+          : `bg-white border-lightBlack-400`
       } items-center gap-2 rounded-4`}
-      style={{ border: "1px solid #313945" }}
+      style={!borderNo ? { border: "1px solid #313945" } : {}}
       onClick={() => {
-        onclick();
+        fcn();
       }}
     >
       {icon && <img src={icon} style={{ width: "23px", height: "24px" }} />}
-      <span
-        className={`font-sideBarFont font-medium ${
-          filled ? `text-white` : `text-lightBlack`
-        } ${size}`}
-      >
-        {text}
-      </span>
+      {text && (
+        <span
+          className={`font-sideBarFont ${
+            bold ? `font-semibold` : `font-medium`
+          } ${
+            textColor
+              ? `text-${textColor}`
+              : filled
+              ? `text-white`
+              : `text-lightBlack`
+          } ${size}`}
+        >
+          {text}
+        </span>
+      )}
       {iconRight && (
         <img src={iconRight} style={{ width: "13px", height: "13px" }} />
       )}
