@@ -99,3 +99,7 @@ table th span {
   font-weight: 400;
   line-height: normal;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}

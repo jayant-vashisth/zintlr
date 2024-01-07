@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import search from "../../assets/svgs/search.svg";
-import { DashboardButton } from "../buttons/Buttons";
+import { DashboardButton } from "../miscellaneous/Buttons";
 import refresh from "../../assets/svgs/refresh.svg";
 import excel from "../../assets/svgs/excel.svg";
 import csv from "../../assets/svgs/csv.svg";
@@ -8,9 +8,9 @@ import filter from "../../assets/svgs/filter.svg";
 import arrow from "../../assets/svgs/arrow.svg";
 import filledV from "../../assets/svgs/filledV.svg";
 import { data } from "../../data";
-import { SimpleHoverCards } from "../hoverCards/HoverCards";
+import { SimpleHoverCards } from "../miscellaneous/HoverCards";
 
-export const Table = () => {
+export const Table = ({ setDrawer }) => {
   const zone = ["South", "North", "East", "West"];
   const accounts = [
     "Business",
@@ -154,7 +154,12 @@ export const Table = () => {
           {data.map((ele, ind) => {
             return (
               <tr className={ind % 2 ? `bg-lightBlue` : `bg-white`}>
-                <td className="wallet-heading font-medium">
+                <td
+                  className="wallet-heading font-medium"
+                  onClick={() => {
+                    setDrawer(true);
+                  }}
+                >
                   {ele.consumerName}
                 </td>
                 <td>

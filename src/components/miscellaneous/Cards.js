@@ -1,6 +1,6 @@
 import React from "react";
 import MoneyBag from "../../assets/svgs/moneyBag.svg";
-import { DashboardButton } from "../buttons/Buttons";
+import { DashboardButton } from "./Buttons";
 import banner1 from "../../assets/images/banner1.png";
 import personSetting from "../../assets/svgs/personSetting.svg";
 import personAdd from "../../assets/svgs/personAdd.svg";
@@ -8,6 +8,7 @@ import i from "../../assets/svgs/i.svg";
 import v from "../../assets/svgs/v.svg";
 import totalImg from "../../assets/svgs/total.svg";
 import arrowRight from "../../assets/svgs/arrowRight.svg";
+import carbonChart from "../../assets/svgs/carbonChart.svg";
 import { useNavigate } from "react-router-dom";
 
 export const SidebarCard = () => {
@@ -310,24 +311,31 @@ export const ConsumerOverviewGraphCard = ({ total }) => {
 
 export const ConsumerOverviewFloatCard = ({
   icon,
+  iconBg,
   heading,
   price,
   bgColor,
+  headingSize,
+  noRounded,
 }) => {
   return (
     <div
-      className={`shadow-md flex flex-row justify-between w-full p-5 items-center bg-${bgColor} rounded-10`}
+      className={`shadow-md flex flex-row justify-between w-full p-5 items-center bg-${bgColor} ${
+        !noRounded && `rounded-10`
+      }`}
       style={{ height: "90px", background: bgColor }}
     >
       <div className="flex flex-row gap-3 items-center">
         <div
-          className="bg-white rounded-full flex items-center justify-center"
+          className={`${
+            iconBg ? `bg-${iconBg}` : `bg-white`
+          }  rounded-full flex items-center justify-center`}
           style={{ height: "40px", width: "40px" }}
         >
           <img src={icon} />
         </div>
         <div className="flex flex-col gap-1 items-start">
-          <span className="custom-heading">{heading}</span>
+          <span className={`custom-heading ${headingSize}`}>{heading}</span>
           <span className="wallet-heading flex flex-row items-center gap-0.5">
             Wallet History <img src={arrowRight} />
           </span>
@@ -342,13 +350,19 @@ export const ConsumerOverviewFloatCard = ({
 
 export const ConsumerOverviewFloatCard2 = ({
   icon,
+  iconBg,
   heading,
   price,
   bgColor,
+  headingSize,
+  noRounded,
+  model,
 }) => {
   return (
     <div
-      className={`shadow-md flex flex-row justify-between w-full p-5 items-center bg-${bgColor} rounded-10`}
+      className={`shadow-md flex flex-row justify-between w-full p-5 items-center bg-${bgColor} ${
+        !noRounded && `rounded-10`
+      }`}
       style={{ height: "132px", background: bgColor }}
     >
       <div className="flex flex-row gap-3 items-center">
@@ -359,21 +373,37 @@ export const ConsumerOverviewFloatCard2 = ({
           <img src={icon} />
         </div>
         <div className="flex flex-col gap-1 items-start">
-          <span className="custom-heading">{heading}</span>
+          <span className={`custom-heading ${headingSize}`}>{heading}</span>
           <span className="wallet-heading flex flex-row items-center gap-0.5">
             Wallet History <img src={arrowRight} />
           </span>
         </div>
       </div>
-      <div className="flex flex-col gap-1">
+      <div className={`flex flex-col ${model && `items-end`} gap-1`}>
         <div>
           <div className="flex flex-row gap-8 items-center">
             <div className="px-6 py-1 bg-goldBgColor rounded-15">
               <span className="goldText">Gold</span>
             </div>
-            <div className="flex flex-col items-end gap-1">
-              <span className="custom-heading14">4,232 gm</span>
-              <div className="px-6 py-1 bg-white rounded-15">
+            <div
+              className={
+                model
+                  ? `flex flex-row items-center gap-13`
+                  : `flex flex-col items-end gap-1`
+              }
+            >
+              <span
+                className={
+                  model ? `custom-heading18LightBlack` : `custom-heading14`
+                }
+              >
+                4,232 gm
+              </span>
+              <div
+                className={`${model ? `px-2.5` : `px-6`} py-1 ${
+                  model ? "bg-priceBg" : "bg-white"
+                } rounded-15`}
+              >
                 <span className="wallet-heading"> ₹9242.5</span>
               </div>
             </div>
@@ -382,15 +412,37 @@ export const ConsumerOverviewFloatCard2 = ({
 
         <div>
           <div className="flex flex-row gap-8 items-center">
-            <div className="px-6 py-1 bg-white rounded-15">
+            <div
+              className={`px-6 py-1 ${
+                model ? `bg-silverChipBg` : `bg-white`
+              } rounded-15`}
+            >
               <span className="goldText" style={{ color: "#A7A7A7" }}>
                 Silver
               </span>
             </div>
-            <div className="flex flex-col items-end gap-1">
-              <span className="custom-heading14">134,232 gm</span>
-              <div className="px-6 py-1 bg-white rounded-15">
-                <span className="wallet-heading"> ₹922.5</span>
+            <div
+              className={
+                model
+                  ? `flex flex-row items-center gap-4`
+                  : `flex flex-col items-end gap-1`
+              }
+            >
+              <span
+                className={
+                  model ? `custom-heading18LightBlack` : `custom-heading14`
+                }
+              >
+                134,232 gm
+              </span>
+              <div
+                className={`${model ? `px-2.5` : `px-6`} py-1 ${
+                  model ? "bg-priceBg" : "bg-white"
+                } rounded-15`}
+              >
+                <span className="wallet-heading">
+                  {model ? `₹49,242.5` : `₹922.5`}
+                </span>
               </div>
             </div>
           </div>
@@ -491,6 +543,30 @@ export const DashboardGraphCards = ({ text, btnText, price, bgColor }) => {
           border: "1px solid black",
         }}
       ></div>
+    </div>
+  );
+};
+
+export const ModalActivityOverview = ({ text, btnText, price, bgColor }) => {
+  return (
+    <div className="bg-white mt-1 pt-3 pl-7 pr-8 pb-8">
+      <div className="flex flex-row items-center gap-2">
+        <div className="bg-carbonBgBlue rounded-full p-3">
+          <img src={carbonChart} />
+        </div>
+        <span className="custom-heading18 text-lightBlack">
+          Activit Overview
+        </span>
+      </div>
+
+      <div className="flex flex-row gap-2 items-center mt-4">
+        <DashboardButton text={"Past Week"} filled={true} />
+        <DashboardButton text={"Past Month"} />
+        <DashboardButton text={"Past Year"} />
+        <DashboardButton text={"All time"} />
+      </div>
+
+      <div style={{ height: "200px", width: "100%" }}></div>
     </div>
   );
 };

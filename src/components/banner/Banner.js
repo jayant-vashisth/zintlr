@@ -1,5 +1,5 @@
 import React from "react";
-import { BannerCard1, BannerCard2 } from "../cards/Cards";
+import { BannerCard1, BannerCard2 } from "../miscellaneous/Cards";
 import banner1 from "../../assets/svgs/banner2.svg";
 import banner2 from "../../assets/svgs/banner3.svg";
 import banner3 from "../../assets/svgs/banner4.svg";

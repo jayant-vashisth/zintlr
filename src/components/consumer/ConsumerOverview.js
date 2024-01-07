@@ -8,7 +8,7 @@ import {
   ConsumerOverviewFloatCard2,
   ConsumerOverviewGraphCard,
   DashboardGraphCards,
-} from "../cards/Cards";
+} from "../miscellaneous/Cards";
 import moneyBag1 from "../../assets/svgs/moneyBag1.svg";
 import moneyBag2 from "../../assets/svgs/moneyBag2.svg";
 import wallet from "../../assets/svgs/wallet.svg";

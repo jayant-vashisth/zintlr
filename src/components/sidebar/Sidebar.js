@@ -9,8 +9,8 @@ import consumers from "../../assets/svgs/consumers.svg";
 import otherOperations from "../../assets/svgs/otherOperations.svg";
 import network from "../../assets/svgs/network.svg";
 import customize from "../../assets/svgs/customize.svg";
-import { SideBarButton } from "../buttons/Buttons";
-import { SidebarCard } from "../cards/Cards";
+import { SideBarButton } from "../miscellaneous/Buttons";
+import { SidebarCard } from "../miscellaneous/Cards";
 
 export const Sidebar = () => {
   const [active, setActive] = useState("Consumers");
