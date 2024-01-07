@@ -10,6 +10,7 @@ import totalImg from "../../assets/svgs/total.svg";
 import arrowRight from "../../assets/svgs/arrowRight.svg";
 import carbonChart from "../../assets/svgs/carbonChart.svg";
 import { useNavigate } from "react-router-dom";
+import { HorizontalBarChart, LineChart, BarChart } from "../charts/Chart";
 
 export const SidebarCard = () => {
   return (
@@ -301,10 +302,9 @@ export const ConsumerOverviewGraphCard = ({ total }) => {
           size={"text-custom-md"}
         />
       </div>
-      <div
-        className="flex"
-        style={{ width: "262px", height: "115px", border: "1px solid black" }}
-      ></div>
+      <div className="flex h-28">
+        <LineChart />
+      </div>
     </div>
   );
 };
@@ -454,7 +454,7 @@ export const ConsumerOverviewFloatCard2 = ({
 
 export const ConsumerAnalysisBlock = ({ icon, heading, price, bgColor }) => {
   return (
-    <div className="border border-borderColor rounded-10 shadow-sm">
+    <div className="border border-borderColor rounded-10 shadow-lg">
       <div className="top pt-6 pl-4 pr-2">
         <span className="custom-heading18 ">Consumer Analysis</span>
 
@@ -504,17 +504,31 @@ export const ConsumerAnalysisBlock = ({ icon, heading, price, bgColor }) => {
           />
         </div>
         <div
-          className="mt-4 ml-16"
-          style={{ width: "642px", height: "300px", border: "1px solid black" }}
-        ></div>
+          className="mt-4 mx-auto flex flex-col gap-2 w-4/5"
+          style={{ height: "285px" }}
+        >
+          <HorizontalBarChart />
+          <div className="w-full flex flex-row justify-end items-end text-right">
+            <span className="custom-heading14Black text-chartLabel">
+              Number Of Consumers
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export const DashboardGraphCards = ({ text, btnText, price, bgColor }) => {
+export const DashboardGraphCards = ({
+  text,
+  btnText,
+  price,
+  bgColor,
+  primaryColor,
+  secColor,
+}) => {
   return (
-    <div className="border border-borderColor rounded-10 shadow-sm flex flex-col mt-3 pt-6 pl-6 pr-3 pb-8">
+    <div className="border border-borderColor rounded-10 shadow-md flex flex-col mt-3 pt-6 pl-6 pr-3 pb-8">
       <div className="flex flex-row items-center justify-between">
         <span className="custom-heading18">{text}</span>
         {btnText && (
@@ -540,9 +554,10 @@ export const DashboardGraphCards = ({ text, btnText, price, bgColor }) => {
         style={{
           height: "263px",
           width: "350px",
-          border: "1px solid black",
         }}
-      ></div>
+      >
+        <BarChart primaryColor={primaryColor} secColor={secColor} />
+      </div>
     </div>
   );
 };

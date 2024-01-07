@@ -70,10 +70,14 @@ export const ConsumerOverview = () => {
             <DashboardGraphCards
               text={"Highest Revenue Earned"}
               btnText={"Top 5"}
+              primaryColor={"#0153C9"}
+              secColor={"#1FB9FC"}
             />
 
             <DashboardGraphCards
               text={"5 Greatest Transactions"}
+              primaryColor={"#FC6B21"}
+              secColor={"#0153C9"}
             />
           </div>
         </div>

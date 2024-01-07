@@ -745,3 +745,109 @@ export const data = [
     tpa: "4819121347@trucard",
   },
 ];
+
+// export const chartData = {
+//   wed: 0,
+//   thu: 500,
+//   fri: 300,
+//   sat: 730,
+//   sun: 240,
+//   mon: 270,
+//   tue: 800,
+// };
+
+export const chartData = [
+  {
+    id: 1,
+    day: "wed",
+    purchaseTotal: 0,
+  },
+  {
+    id: 2,
+    day: "thu",
+    purchaseTotal: 500,
+  },
+  {
+    id: 3,
+    day: "fri",
+    purchaseTotal: 300,
+  },
+  {
+    id: 4,
+    day: "sat",
+    purchaseTotal: 730,
+  },
+  {
+    id: 5,
+    day: "sun",
+    purchaseTotal: 240,
+  },
+  {
+    id: 6,
+    day: "mon",
+    purchaseTotal: 270,
+  },
+  {
+    id: 7,
+    day: "tue",
+    purchaseTotal: 800,
+  },
+];
+
+export const consumerAnalysisData = [
+  {
+    type: "very Active",
+    value: 2500,
+  },
+  {
+    type: "Moderately Active",
+    value: 6000,
+  },
+  {
+    type: "Least Active",
+    value: 10070,
+  },
+];
+
+export const customLabels = [
+  {
+    consumer: "Anjali Singh",
+    revenue: "$580K",
+    amount: "$750K",
+    consumption: "Buy",
+    stock: "24k Gold 32g",
+    date: "03-10-22",
+  },
+  {
+    consumer: "Jayant Vashisth",
+    revenue: "$980K",
+    amount: "$750K",
+    consumption: "Buy",
+    stock: "24k Gold 32g",
+    date: "03-10-22",
+  },
+  {
+    consumer: "Rohan Sharma",
+    revenue: "$980K",
+    amount: "$550K",
+    consumption: "Buy",
+    stock: "24k Gold 32g",
+    date: "03-10-22",
+  },
+  {
+    consumer: "Aman Tanwar",
+    revenue: "$380K",
+    amount: "$640K",
+    consumption: "Buy",
+    stock: "24k Gold 32g",
+    date: "03-10-22",
+  },
+  {
+    consumer: "Virat Kohli",
+    revenue: "$780K",
+    amount: "$360K",
+    consumption: "Buy",
+    stock: "24k Gold 132g",
+    date: "03-10-22",
+  },
+];

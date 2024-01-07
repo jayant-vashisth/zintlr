@@ -71,6 +71,7 @@ module.exports = {
       removePersonBg: "#E6E6E6",
       editPersonBg: "#F0FFB8",
       disable: "rgba(0, 0, 0, 0.50)",
+      chartLabel: "#86909C",
     },
     fontFamily: {
       customFont: ["inter"],

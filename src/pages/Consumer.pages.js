@@ -8,7 +8,7 @@ export const Consumer = () => {
       <div className="left h-screen" style={{ width: "285px" }}>
         <Sidebar />
       </div>
-      <div className="right overflow-auto" style={{ width: "calc(100vw - 285px)" }}>
+      <div className="right overflow-auto pb-10" style={{ width: "calc(100vw - 285px)" }}>
         <ConsumerOverview />
       </div>
     </div>
