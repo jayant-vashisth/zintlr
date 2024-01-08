@@ -15,27 +15,26 @@ import { HorizontalBarChart, LineChart, BarChart } from "../charts/Chart";
 export const SidebarCard = () => {
   return (
     <div
-      className="w-full pl-6 pr-2 py-3 rounded-tl-0 rounded-tr-15 rounded-br-15 rounded-bl-15 opacity-90"
+      className="w-full pl-6 pr-2 py-3 rounded-tl-0 rounded-tr-15 rounded-br-15 rounded-bl-15 opacity-90 relative"
       style={{
         background: "linear-gradient(180deg, #3CBEE7 0%, #639EE3 100%)",
-        position: "relative",
       }}
     >
       <img
         src={MoneyBag}
         style={{ position: "absolute", top: "0px", left: "0px" }}
+        alt="MoneyBag"
       />
       <div className="bg-white rounded-15 py-4">
         <div
           className="flex flex-row justify-center items-center gap-3"
-          style={{}}
         >
           <div className="flex flex-col">
             <div className="flex flex-row">
               <span className="text-lightBlack font-normal">TruCoin</span>
               <span className="text-gold font-medium">&nbsp;Gold</span>
             </div>
-            <span className="text-lightGold" style={{ fontSize: "12px" }}>
+            <span className="text-lightGold text-custom-sm">
               $6.18(+1.82%)
             </span>
           </div>
@@ -48,7 +47,7 @@ export const SidebarCard = () => {
               <span className="text-lightBlack font-normal">TruCoin</span>
               <span className="text-gold font-medium">&nbsp;Silver</span>
             </div>
-            <span className="text-lightGold" style={{ fontSize: "12px" }}>
+            <span className="text-lightGold text-custom-sm">
               $6.18(+1.82%)
             </span>
           </div>
@@ -101,8 +100,7 @@ export const BannerCard1 = ({ heading, para, bt1, bt2, manageConsumers }) => {
               {heading}
             </span>
             <span
-              className="text-paraColor"
-              style={{ fontSize: "14px", lineHeight: "16px" }}
+              className="text-paraColor text-custom-md"
             >
               {para}
             </span>
@@ -126,7 +124,7 @@ export const BannerCard1 = ({ heading, para, bt1, bt2, manageConsumers }) => {
           )}
         </div>
       </div>
-      <img src={banner1} style={{ zIndex: "10", opacity: "1" }} />
+      <img src={banner1} className="z-10" alt="banner1" />
     </div>
   );
 };
@@ -152,11 +150,10 @@ export const BannerCard2 = ({
       <div className="flex flex-col mb-4">
         <div className="flex flex-row items-baseline gap-1">
           <div className="flex flex-row items-center gap-1">
-            <img src={icon1} />
+            <img src={icon1} alt="icon1" />
             {text1 && (
               <span
-                className="font-normal text-left"
-                style={{ fontSize: "18px" }}
+                className="font-normal text-left text-custom-lg"
               >
                 {text1}
               </span>
@@ -169,7 +166,7 @@ export const BannerCard2 = ({
             {bigNum}
           </span>
         </div>
-        <span className="font-normal text-left" style={{ fontSize: "18px" }}>
+        <span className="font-normal text-left text-custom-lg">
           {text2}
         </span>
       </div>
@@ -185,7 +182,7 @@ export const ConsumerOverviewCardTop = ({ total, num1, num2, num3, num4 }) => {
         className="flex flex-row items-center gap-5 bg-topCard p-5 rounded-10"
         style={{ minWidth: "290px" }}
       >
-        <img src={totalImg} />
+        <img src={totalImg} alt="totalImg" />
         <div className="flex flex-col text-left">
           <span>Total Consumers</span>
           <span
@@ -214,7 +211,7 @@ export const ConsumerOverviewCardTop = ({ total, num1, num2, num3, num4 }) => {
               >
                 Direct Consumers
               </span>
-              <img src={i} />
+              <img src={i} alt="i" />
             </div>
             <span
               className="font-sideBarFont font-medium"
@@ -232,7 +229,7 @@ export const ConsumerOverviewCardTop = ({ total, num1, num2, num3, num4 }) => {
               >
                 Through Field Executives
               </span>
-              <img src={i} />
+              <img src={i} alt="i" />
             </div>
             <span
               className="font-sideBarFont font-medium"
@@ -252,7 +249,7 @@ export const ConsumerOverviewCardTop = ({ total, num1, num2, num3, num4 }) => {
               >
                 Through Associates
               </span>
-              <img src={i} />
+              <img src={i} alt="i" />
             </div>
             <span
               className="font-sideBarFont font-medium"
@@ -270,7 +267,7 @@ export const ConsumerOverviewCardTop = ({ total, num1, num2, num3, num4 }) => {
               >
                 Through Sales Executives
               </span>
-              <img src={i} />
+              <img src={i} alt="i" />
             </div>
             <span
               className="font-sideBarFont font-medium"
@@ -332,12 +329,12 @@ export const ConsumerOverviewFloatCard = ({
           }  rounded-full flex items-center justify-center`}
           style={{ height: "40px", width: "40px" }}
         >
-          <img src={icon} />
+          <img src={icon} alt="icon" />
         </div>
         <div className="flex flex-col gap-1 items-start">
           <span className={`custom-heading ${headingSize}`}>{heading}</span>
           <span className="wallet-heading flex flex-row items-center gap-0.5">
-            Wallet History <img src={arrowRight} />
+            Wallet History <img src={arrowRight} alt="arrowRight" />
           </span>
         </div>
       </div>
@@ -370,12 +367,12 @@ export const ConsumerOverviewFloatCard2 = ({
           className="bg-white rounded-full flex items-center justify-center"
           style={{ height: "40px", width: "40px" }}
         >
-          <img src={icon} />
+          <img src={icon} alt="icon" />
         </div>
         <div className="flex flex-col gap-1 items-start">
           <span className={`custom-heading ${headingSize}`}>{heading}</span>
           <span className="wallet-heading flex flex-row items-center gap-0.5">
-            Wallet History <img src={arrowRight} />
+            Wallet History <img src={arrowRight} alt="arrowRight" />
           </span>
         </div>
       </div>
@@ -567,7 +564,7 @@ export const ModalActivityOverview = ({ text, btnText, price, bgColor }) => {
     <div className="bg-white mt-1 pt-3 pl-7 pr-8 pb-8">
       <div className="flex flex-row items-center gap-2">
         <div className="bg-carbonBgBlue rounded-full p-3">
-          <img src={carbonChart} />
+          <img src={carbonChart} alt="carbonRight" />
         </div>
         <span className="custom-heading18 text-lightBlack">
           Activit Overview

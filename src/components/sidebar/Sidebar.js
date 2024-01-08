@@ -22,7 +22,7 @@ export const Sidebar = () => {
         style={{ fontSize: "20px", fontWeight: "500" }}
       >
         <div className="flex flex-row px-6">
-          <img src={logo}></img>
+          <img src={logo} alt="logo"/>
           <span style={{ textShadow: "0px 4px 10px rgba(0, 0, 0, 0.15)" }}>
             ZINTLR
           </span>

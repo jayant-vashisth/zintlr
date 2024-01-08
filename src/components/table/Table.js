@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import search from "../../assets/svgs/search.svg";
-import { DashboardButton } from "../miscellaneous/Buttons";
+import { DashboardButton, Tags } from "../miscellaneous/Buttons";
 import refresh from "../../assets/svgs/refresh.svg";
 import excel from "../../assets/svgs/excel.svg";
 import csv from "../../assets/svgs/csv.svg";
@@ -9,6 +8,7 @@ import arrow from "../../assets/svgs/arrow.svg";
 import filledV from "../../assets/svgs/filledV.svg";
 import { data } from "../../data";
 import { SimpleHoverCards } from "../miscellaneous/HoverCards";
+import { Pagination } from "../pagination/Pagination";
 
 export const Table = ({ setDrawer }) => {
   const zone = ["South", "North", "East", "West"];
@@ -24,12 +24,25 @@ export const Table = ({ setDrawer }) => {
   const [zoneHidden, setZoneHidden] = useState(false);
   const [accountType, setAccountType] = useState(false);
 
+  const [search, setSearch] = useState();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(10);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className="mt-2 w-full">
       <div className="flex flex-row justify-between">
         <div className="flex flex-row relative">
           <input
             className="bg-white py-3 pl-5 rounded-4 pr-14"
+            onChange={(e) => setSearch(e.target.value)}
             style={{
               height: "50px",
               width: "374px",
@@ -42,7 +55,7 @@ export const Table = ({ setDrawer }) => {
             className="flex absolute bg-white flex-row items-center justify-center rounded-full"
             style={{ height: "40px", width: "40px", right: "7px", top: "5px" }}
           >
-            <img src={search} />
+            <img src={search} alt="search" />
           </div>
         </div>
         <div className="flex flex-row gap-1">
@@ -70,7 +83,7 @@ export const Table = ({ setDrawer }) => {
                   <span>Assets</span>
                   <span className="smallBlueText">Total ~₹9M</span>
                 </div>
-                <img src={filledV} />
+                <img src={filledV} alt="filledV" />
               </div>
             </th>
             <th>
@@ -79,7 +92,7 @@ export const Table = ({ setDrawer }) => {
                   <span>Revenue</span>
                   <span className="smallBlueText">Total ~₹9M</span>
                 </div>
-                <img src={filledV} />
+                <img src={filledV} alt="filledV" />
               </div>
             </th>
             <th className="relative">
@@ -92,11 +105,12 @@ export const Table = ({ setDrawer }) => {
                 }}
               >
                 <span>KYC Status</span>
-                <img src={filledV} />
+                <img src={filledV} alt="filledV" />
               </div>
               <div
-                className={`${!kyc ? `hidden absolute mt-4` : `absolute mt-4`}`}
-                style={{ zIndex: "100" }}
+                className={`${
+                  !kyc ? `hidden absolute mt-4 z-50` : `absolute mt-4 z-50`
+                }`}
               >
                 <SimpleHoverCards data={KYCData} />
               </div>
@@ -114,13 +128,14 @@ export const Table = ({ setDrawer }) => {
                 }}
               >
                 <span>Zone</span>
-                <img src={filledV} />
+                <img src={filledV} alt="filledV" />
               </div>
               <div
                 className={`${
-                  !zoneHidden ? `hidden absolute mt-4` : `absolute mt-4`
+                  !zoneHidden
+                    ? `hidden absolute mt-4 z-50`
+                    : `absolute mt-4 z-50`
                 }`}
-                style={{ zIndex: "100" }}
               >
                 <SimpleHoverCards data={zone} />
               </div>
@@ -135,13 +150,14 @@ export const Table = ({ setDrawer }) => {
                 }}
               >
                 <span>Account Type</span>
-                <img src={filledV} />
+                <img src={filledV} alt="filledV" />
               </div>
               <div
                 className={`${
-                  !accountType ? `hidden absolute mt-4` : `absolute mt-4`
+                  !accountType
+                    ? `hidden absolute mt-4 z-50`
+                    : `absolute mt-4 z-50`
                 }`}
-                style={{ zIndex: "100" }}
               >
                 <SimpleHoverCards data={accounts} />
               </div>
@@ -151,16 +167,23 @@ export const Table = ({ setDrawer }) => {
             </th>
           </tr>
 
-          {data.map((ele, ind) => {
+          {currentItems.map((ele, ind) => {
             return (
-              <tr className={ind % 2 ? `bg-lightBlue` : `bg-white`}>
+              <tr key={ind} className={ind % 2 ? `bg-lightBlue` : `bg-white`}>
                 <td
-                  className="wallet-heading font-medium"
+                  className="wallet-heading font-medium flex flex-row gap-1 items-center"
                   onClick={() => {
                     setDrawer(true);
                   }}
                 >
-                  {ele.consumerName}
+                  <span className="cursor-pointer">{ele.consumerName}</span>
+                  {ele?.notif ? (
+                    <div className="w-6 py-1 rounded-100 flex flex-row justify-center items-center bg-redChip">
+                      <span className="text-white smallBlueText font-extrabold">
+                        {ele?.notif}
+                      </span>
+                    </div>
+                  ) : null}
                 </td>
                 <td>
                   <div>
@@ -187,7 +210,25 @@ export const Table = ({ setDrawer }) => {
                 <td className="custom-heading18LightBlack">
                   {ele.assets.total}
                 </td>
-                <td>{ele.kycStatus}</td>
+                <td>
+                  <Tags
+                    text={ele?.kycStatus}
+                    textColor={
+                      ele.kycStatus == "done"
+                        ? "#27A607"
+                        : ele?.kycStatus == "pending"
+                        ? "#FF4444"
+                        : "#FF4444"
+                    }
+                    bgColor={
+                      ele.kycStatus == "done"
+                        ? "#EAFFE0"
+                        : ele?.kycStatus == "pending"
+                        ? "#FFE9E9"
+                        : "#FFE9E9"
+                    }
+                  />
+                </td>
                 <td>
                   <div className="flex flex-row gap-2">
                     <div className="flex flex-col">
@@ -196,7 +237,7 @@ export const Table = ({ setDrawer }) => {
                       </span>
                       <span>{ele?.fieldExec}</span>
                     </div>
-                    <img src={arrow} />
+                    <img src={arrow} alt="arrow" />
                     <div className="flex flex-col">
                       <span className="text-Light-Black font-sideBarFont text-xs font-normal opacity-70">
                         Associate
@@ -212,6 +253,16 @@ export const Table = ({ setDrawer }) => {
             );
           })}
         </table>
+      </div>
+
+      <div className="w-full flex justify-center items-center">
+        <Pagination
+          itemsPerPage={itemsPerPage}
+          totalItems={data.length}
+          paginate={paginate}
+          currentPage={currentPage}
+          totalPages={data.length / 10}
+        />
       </div>
     </div>
   );

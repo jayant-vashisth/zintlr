@@ -24,22 +24,22 @@ export const Navbar = () => {
           className="flex absolute bg-white flex-row items-center justify-center rounded-full"
           style={{ height: "40px", width: "40px", right: "7px", top: "5px" }}
         >
-          <img src={search} />
+          <img src={search} alt="search" />
         </div>
       </div>
       <div className="flex flex-row gap-4">
         <div className="flex flex-row gap-4 items-center">
           <div>
-            <img src={notif} />
+            <img src={notif} alt="notif" />
           </div>
           <div>
-            <img src={folder} />
+            <img src={folder} alt="folder" />
           </div>
           <div>
-            <img src={file} />
+            <img src={file} alt="file" />
           </div>
           <div>
-            <img src={money} />
+            <img src={money} alt="money" />
           </div>
         </div>
 
@@ -51,27 +51,31 @@ export const Navbar = () => {
             <span className="text-gold font-semibold">Gold</span>
           </div>
           <div>
-            <img src={navGraph} />
+            <img src={navGraph} alt="navGraph" />
             <span className="text-navGold">+0.34%</span>
           </div>
           <div>
             <span className="flex flex-row font-medium">
-              Buy: ₹7,390.00 <img className="ml-2" src={growth} />
+              Buy: ₹7,390.00 <img className="ml-2" src={growth} alt="growth" />
             </span>
             <span className="flex flex-row font-medium">
-              Sell: ₹7,090.00 <img className="ml-2" src={growth} />
+              Sell: ₹7,090.00 <img className="ml-2" src={growth} alt="growth" />
             </span>
           </div>
         </div>
 
         <div className="flex flex-row relative items-center bg-lightBlue rounded-10 pl-4 pr-6">
-          <img style={{ width: "53px", height: "53px" }} src={profile} />
+          <img
+            style={{ width: "53px", height: "53px" }}
+            src={profile}
+            alt="profile"
+          />
           <img
             className="absolute"
             style={{ left: "-3px", bottom: "-6px" }}
             src={circle}
           />
-          <img className="ml-4" src={v} />
+          <img className="ml-4" src={v} alt="v" />
         </div>
       </div>
     </div>

@@ -72,6 +72,11 @@ module.exports = {
       editPersonBg: "#F0FFB8",
       disable: "rgba(0, 0, 0, 0.50)",
       chartLabel: "#86909C",
+      redChip: "#F55",
+      paginationBtn: "#DFE3E8",
+      darkGrey: "#212B36",
+      paginationArrow: "#C4CDD5",
+      done: "#27A607",
     },
     fontFamily: {
       customFont: ["inter"],

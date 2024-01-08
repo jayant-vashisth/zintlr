@@ -38,7 +38,7 @@ export const ConsumerDetailsModel = () => {
             </span>
           </div>
           <div className="flex flex-col bg-tachometerBg rounded-4 py-1 px-2.5">
-            <img src={tachometer} />
+            <img src={tachometer} alt="tachometer" />
             <span className="custom-heading font-semibold">245</span>
           </div>
           <div className="flex flex-col gap-1">
@@ -67,7 +67,7 @@ export const ConsumerDetailsModel = () => {
 
       <div className="bg-ticketBg flex flex-row justify-between items-center py-3 px-7">
         <div className="flex flex-row items-center gap-0.5">
-          <img src={warning} />
+          <img src={warning} alt="warning" />
           <span className="custom-heading18">2 Active Ticket(s)</span>
         </div>
         <DashboardButton
@@ -82,9 +82,9 @@ export const ConsumerDetailsModel = () => {
         <div className="left w-3/4 flex flex-col gap-2 items-center bg-white p-6">
           <div className="flex flex-row items-center gap-7">
             <span>B2B Field Executive</span>
-            <img src={longBlueArrow} />
+            <img src={longBlueArrow} alt="longBlueArrow" />
             <span>Associate</span>
-            <img src={longBlueArrow} />
+            <img src={longBlueArrow} alt="longBlueArrow" />
             <span>Consumer</span>
           </div>
           <div className="w-full flex flex-row justify-around items-center">
@@ -127,7 +127,7 @@ export const ConsumerDetailsModel = () => {
           </span>
           <div className="flex flex-row items-center gap-0.5 ">
             <span className="wallet-heading">View All Transactions</span>
-            <img src={blueArrow} />
+            <img src={blueArrow} alt="blueArrow" />
           </div>
         </div>
         <div className="bottom flex flex-row justify-between bg-white pl-8 pt-1.5 pb-3 pr-7">
@@ -155,7 +155,7 @@ export const ConsumerDetailsModel = () => {
                   Success
                 </span>
               </div>
-              <img src={receipt} />
+              <img src={receipt} alt="receipt" />
             </div>
           </div>
         </div>
@@ -204,12 +204,12 @@ export const ConsumerDetailsModel = () => {
       <div className="mt-1 flex flex-row items-center justify-between bg-white py-4 px-7">
         <div className="left flex flex-row gap-2.5 items-center">
           <div className="bg-mailBg rounded-full p-3">
-            <img src={mail} />
+            <img src={mail} alt="mail" />
           </div>
           <div className="flex flex-col gap-0.5">
             <span className="custom-heading18 text-lightBlack">Referral</span>
             <span className="flex flex-row gap-0.5 wallet-heading items-center">
-              Referral History <img src={blueArrow} />
+              Referral History <img src={blueArrow} alt="blueArrow" />
             </span>
           </div>
         </div>
@@ -223,7 +223,7 @@ export const ConsumerDetailsModel = () => {
         <div className="left flex flex-row justify-between bg-white py-2.5 pl-7 pr-4 w-full">
           <div className="flex flex-row gap-2 items-center">
             <div className="bg-removePersonBg rounded-full p-3">
-              <img src={removePerson} />
+              <img src={removePerson} alt="removePerson" />
             </div>
             <span className="custom-heading text-disable">
               Disable consumer
@@ -239,7 +239,7 @@ export const ConsumerDetailsModel = () => {
         <div className="left flex flex-row justify-between bg-white py-2.5 pl-7 pr-4 w-full">
           <div className="flex flex-row gap-2 items-center">
             <div className="bg-editPersonBg rounded-full p-3">
-              <img src={editPerson} />
+              <img src={editPerson} alt="editPerson" />
             </div>
             <span className="custom-heading text-disable">
               Edit consumer details

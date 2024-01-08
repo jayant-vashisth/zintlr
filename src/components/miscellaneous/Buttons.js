@@ -3,8 +3,9 @@ import React from "react";
 export const SideBarButton = ({ active, text, asset, setActive }) => {
   return (
     <button
-      class={`flex flex-row py-2 pl-6 ${active && `bg-buttonBlue rounded-30`}`}
-      style={{ gap: "14px", fontSize: "18px" }}
+      class={`flex flex-row gap-3 text-custom-lg py-2 pl-6 ${
+        active && `bg-buttonBlue rounded-30`
+      }`}
       onClick={() => {
         setActive(text);
       }}
@@ -43,7 +44,7 @@ export const DashboardButton = ({
           ? `bg-lightBlack`
           : `bg-white border-lightBlack-400`
       } items-center gap-2 rounded-4`}
-      style={!borderNo ? { border: "1px solid #313945" } : {}}
+      style={!borderNo ? { border: "1px solid #313945" } : null}
       onClick={() => {
         fcn();
       }}
@@ -68,5 +69,21 @@ export const DashboardButton = ({
         <img src={iconRight} style={{ width: "13px", height: "13px" }} />
       )}
     </button>
+  );
+};
+
+export const Tags = ({ text, textColor, bgColor }) => {
+  return (
+    <div
+      className={`px-4 py-1 rounded-100 inline-flex items-center justify-center`}
+      style={{ background: bgColor }}
+    >
+      <span
+        className={`custom-heading14Black font-medium text-${textColor}`}
+        style={{ color: textColor }}
+      >
+        {text}
+      </span>
+    </div>
   );
 };

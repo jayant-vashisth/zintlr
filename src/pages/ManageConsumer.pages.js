@@ -6,7 +6,7 @@ import { ManageConsumers } from "../components/manageConsumers/ManageConsumers";
 export const ManageConsumer = () => {
   return (
     <div className="flex w-full h-screen">
-      <div className="left h-screen" style={{ width: "285px" }}>
+      <div className="left h-screen static" style={{ width: "285px" }}>
         <Sidebar />
       </div>
       <div

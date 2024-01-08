@@ -25,7 +25,7 @@ export const ManageConsumers = () => {
 
   return (
     <div className="overflow-hidden">
-      <div className="overflow-auto">
+      <div>
         <Transition
           show={drawer}
           enter="transition-transform duration-5000 ease-out"
@@ -49,7 +49,7 @@ export const ManageConsumers = () => {
           <span className="flex text-left custom-heading18">
             Consumers Overview
           </span>
-          <div className="flex flex-row gap-2">
+          <div className="flex flex-row gap-2 overflow-auto">
             <Table setDrawer={setDrawer} />
           </div>
         </div>
